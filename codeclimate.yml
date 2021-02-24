@@ -12,5 +12,7 @@ exclude_patterns:
   - "node_modules/"
   - ".nyc_output"
   - "coverage"
-  - "./tailwind.*"
+  - "tailwind.*"
+  - "tailwindcss.*"
   - "./src/index.js"
+  - "./src/*/test.js"
