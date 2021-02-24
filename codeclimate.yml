@@ -16,3 +16,4 @@ exclude_patterns:
   - "tailwindcss.*"
   - "./src/index.js"
   - "./src/*/test.js"
+  - "./src/api/api.js"
