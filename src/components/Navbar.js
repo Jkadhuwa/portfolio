@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { ReactComponent as MenuIcon } from '../assets/images/menu.svg';
 import { ReactComponent as CloseIcon } from '../assets/images/close.svg';
 
-const Navbar = () => {
+const Navbar = (props) => {
   const initial = '<MK/>';
-  const [isOpen, setOpen] = useState(false);
+  const { open } = props;
+  const [isOpen, setOpen] = useState(open);
 
   const closeMenu = () => {
     setOpen(!isOpen);
@@ -21,9 +23,9 @@ const Navbar = () => {
         <div className="w-2 h-32 ">
           <p className="text-xl">{initial}</p>
         </div>
-        <div className=" ">
+        <div className="">
           <div className="w-6 ml-24 sm:hidden" onClick={closeMenu}>
-            {isOpen ? <CloseIcon /> : <MenuIcon />}
+            {open ? <CloseIcon /> : <MenuIcon />}
           </div>
           <div
             className={`text-center ml-8 sm:block uppercase space-x-4 font-extralight text-lg    ${
@@ -77,6 +79,9 @@ const Navbar = () => {
       </div>
     </nav>
   );
+};
+Navbar.propTypes = {
+  open: PropTypes.string,
 };
 
 export default Navbar;

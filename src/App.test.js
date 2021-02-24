@@ -11,7 +11,7 @@ describe('Renders Main component ', () => {
   });
   it('Renders <App/> component correctly ', () => {
     const { getByText } = render(<App />);
-    expect(getByText(/404! Page Not Found/i)).toBeInTheDocument();
+    expect(getByText(/Passionate about tech/i)).toBeInTheDocument();
   });
   it('Renders navbar correctly', () => {
     render(<App />);
