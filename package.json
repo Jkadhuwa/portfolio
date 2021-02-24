@@ -52,5 +52,11 @@
     "postcss-cli": "^8.3.1",
     "prettier": "^2.2.1",
     "tailwindcss": "^2.0.2"
-  }
+  },
+  "jest": {
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx}",
+     "!src/index.js"
+  ]
+}
 }

@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import App from './App';
 
 window.scrollTo = jest.fn();
+
 describe('Renders Main component ', () => {
   afterAll(() => {
     jest.clearAllMocks();
