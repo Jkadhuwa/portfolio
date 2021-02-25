@@ -8,8 +8,9 @@ engines:
     checks:
       similar-code:
         enabled: false
-exclude_sparherns:
+exclude_patterns:
   - "node_modules/"
   - ".nyc_output"
   - "coverage"
   - "./tailwind.*"
+  - "./src/index.js"
