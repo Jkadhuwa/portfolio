@@ -1,0 +1,42 @@
+version: 2.1
+jobs:
+  build:
+    environment:
+      CC_TEST_REPORTER_ID: 7ca6d9bb45c1b792ea12152b826b18b87ca4aa5bb59f12cf4e36ad7381901813
+    docker:
+      - image: circleci/node:12.13.0
+  
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ .Branch }}-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: yarn
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ .Branch }}-{{ checksum "package.json" }}
+  
+      # Download code climate reporter.
+      - run:
+          name: Install Code Climate Test Reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Run tests
+          command: |
+            ./cc-test-reporter before-build
+            yarn run test
+            ./cc-test-reporter after-build --exit-code $?
+  
+workflows:
+  build-deploy:
+    jobs:
+      - build
