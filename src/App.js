@@ -4,6 +4,7 @@ import NotFoundPage from './pages/404';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Homepage from './pages/Homepage';
+import Resume from './pages/Resume';
 const App = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,6 +15,7 @@ const App = () => {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Homepage} />
+        <Route exact path="/resume" component={Resume} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
       <Footer />
