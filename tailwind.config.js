@@ -6,6 +6,7 @@ module.exports = {
     extend: {},
   },
   screens: {
+    ms: '',
     sm: '640px',
     // => @media (min-width: 640px) { ... }
 

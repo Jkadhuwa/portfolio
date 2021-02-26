@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFoundPage from './pages/404';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Homepage from './pages/Homepage';
 const App = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -12,6 +13,7 @@ const App = () => {
     <Router>
       <Navbar />
       <Switch>
+        <Route exact path="/" component={Homepage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
       <Footer />
