@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Homepage from './pages/Homepage';
 import Resume from './pages/Resume';
 import Blogs from './pages/Blogs';
+import Contact from './pages/Contact';
 const App = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,6 +19,7 @@ const App = () => {
         <Route exact path="/" component={Homepage} />
         <Route exact path="/resume" component={Resume} />
         <Route exact path="/blogs" component={Blogs} />
+        <Route exact path="/contact" component={Contact} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
       <Footer />
