@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav
       className={`${
         isOpen ? 'h-52 ' : 'h-20'
-      } flex flex-wrap px-8 w-screen fixed  bg-gray-100  sm:h-20`}
+      } flex flex-wrap px-8 w-screen fixed  bg-gray-100  sm:h-20 z-10`}
     >
       <div className="flex-1 flex justify-between my-6">
         <div className="w-2 h-32 ">
@@ -26,7 +26,7 @@ const Navbar = () => {
             {isOpen ? <CloseIcon /> : <MenuIcon />}
           </div>
           <div
-            className={`text-center ml-8 sm:block uppercase space-x-4 font-extralight text-lg    ${
+            className={`text-center ml-8 sm:block uppercase space-x-4 font-extralight text-lg  ${
               isOpen ? 'flex flex-col   px-0' : 'hidden'
             }`}
             onClick={() => setOpen(false)}

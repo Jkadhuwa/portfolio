@@ -6,6 +6,6 @@ import NotFoundPage from '../404';
 describe('Test NotFoundPage Component', () => {
   it('Should render the NotFoundPage correctly', () => {
     const { getByText } = render(<NotFoundPage />);
-    expect(getByText(/404! Page Not Found/i)).toBeInTheDocument();
+    expect(getByText(/404 | Not Found/i)).toBeInTheDocument();
   });
 });

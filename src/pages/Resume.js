@@ -19,7 +19,7 @@ const Resume = () => {
             className="flex border border-gray-400 p-2 text-white text-xl font-extralight
            rounded shadow   hover:border-yellow-600 focus:outline-none"
           >
-            <img src={DownloadIcon} className="h-7" />
+            <img src={DownloadIcon} className="h-7 animate-bounce z-0 " />
             Download Resume
           </button>
         </div>

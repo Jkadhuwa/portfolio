@@ -1,11 +1,14 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, cleanup, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { BrowserRouter } from 'react-router-dom';
 import Blogs from '../Blogs';
 import blogsApi from '../../apis/blogsApi';
 import mockData from '../__mocks__/blogsMock';
 
 describe('Test Blogs Component', () => {
+  afterEach(cleanup);
+
   it('Should render the resume page correctly', async () => {
     const { getByText } = render(<Blogs />);
     expect(
@@ -24,11 +27,16 @@ describe('Test Blogs Component', () => {
 
   it('Should call getBlogs function and get All blogs', async () => {
     const blogs = jest.spyOn(blogsApi, 'getBlogs');
-    blogs.mockReturnValue(mockData);
-    const data = blogsApi.getBlogs();
-    const { getAllByRole } = render(<Blogs />);
-    const heading = getAllByRole('heading');
-    expect(data).toHaveLength(2);
-    expect(heading[0].textContent).toBe(' What is Lorem Ipsum?');
+    blogs.mockResolvedValue({ data: mockData });
+    const { data } = await blogsApi.getBlogs();
+    const { getAllByRole } = render(
+      <BrowserRouter>
+        <Blogs />
+      </BrowserRouter>
+    );
+    expect(data.blogs).toHaveLength(2);
+    await waitFor(() =>
+      expect(getAllByRole('heading')[0].textContent).toBe(' What is Lorem Ipsum?')
+    );
   });
 });
