@@ -36,7 +36,40 @@ jobs:
             yarn run test
             ./cc-test-reporter after-build --exit-code $?
   
+  deploy_staging:
+    docker:
+      - image: circleci/node:12.13.0
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints: [01:e1:20:3b:58:ff:01:16:95:83:9f:00:53:05:2c:7a]
+      - run:
+         name: Deploy over ssh
+         command: ssh -oStrictHostKeyChecking=no -v  www-data@128.199.10.244 "./deploy_portfolio_staging.sh"
+          
+  deploy_production:
+    docker:
+      - image: circleci/node:12.13.0
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints: [01:e1:20:3b:58:ff:01:16:95:83:9f:00:53:05:2c:7a]
+      - run:
+         name: Deploy over ssh
+        
+         command: ssh -oStrictHostKeyChecking=no -v  www-data@128.199.10.244 "./deploy_portfolio_production.sh"
+  
 workflows:
-  build-deploy:
+  build:
     jobs:
       - build
+      - deploy_staging:
+         requires:
+           - build
+         filters:
+           branches:
+            only: develop
+      - deploy_production:
+         filters:
+            branches:
+              only: main
