@@ -19,7 +19,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "yarn run watch:css && react-scripts start",
+    "start": "yarn react-scripts start",
+    "start-dev": "yarn run watch:css && react-scripts start",
     "build": "yarn run watch:css && react-scripts build",
     "test": "yarn run watch:css && react-scripts test a --coverage --verbose --env=jsdom",
     "eject": "react-scripts eject",
