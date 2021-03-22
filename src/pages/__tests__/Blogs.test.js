@@ -8,19 +8,8 @@ import mockData from '../__mocks__/blogsMock';
 
 describe('Test Blogs Component', () => {
   afterEach(cleanup);
-
-  it('Should render the resume page correctly', async () => {
-    const { getByText } = render(<Blogs />);
-    expect(
-      getByText(
-        /No Blogs found at the moment, something good is cooking. Please come back later!!!/i
-      )
-    ).toBeInTheDocument();
-  });
-
   it('Should call getBlogs function', async () => {
     const blogs = jest.spyOn(blogsApi, 'getBlogs');
-    blogs.mockImplementation();
     blogsApi.getBlogs();
     expect(blogs).toHaveBeenCalledTimes(1);
   });
@@ -37,6 +26,19 @@ describe('Test Blogs Component', () => {
     expect(data.blogs).toHaveLength(2);
     await waitFor(() =>
       expect(getAllByRole('heading')[0].textContent).toBe(' What is Lorem Ipsum?')
+    );
+  });
+  it('Should render the resume page correctly', async () => {
+    const blogs = jest.spyOn(blogsApi, 'getBlogs');
+    blogs.mockResolvedValue({ data: { blogs: [] } });
+    await blogsApi.getBlogs();
+    const { getByText } = render(<Blogs />);
+    await waitFor(() =>
+      expect(
+        getByText(
+          /No Blogs found at the moment, something good is cooking. Please come back later!!!/i
+        )
+      ).toBeInTheDocument()
     );
   });
 });
