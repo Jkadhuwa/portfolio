@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import blogsApi from '../apis/blogsApi';
 import DevImg from '../assets/images/dev_img.jpeg';
-import Spinner from '../assets/images/spinner.gif';
+import Spinner from '../components/Spinner';
 
 const initialState = {
   data: [],
@@ -17,11 +17,9 @@ const Blogs = () => {
     })();
   }, []);
   return (
-    <section className="mt-36 h-screen text-xl font-extralight ">
+    <section className="mt-36 min-h-screen text-xl font-extralight ">
       {state.loading ? (
-        <div className="flex items-center justify-center h-screen bg-white -mt-16">
-          <img src={Spinner} />
-        </div>
+        <Spinner />
       ) : (
         <article className="flex flex-col items-center mb-20">
           {!state.data.length ? (
@@ -41,8 +39,8 @@ const Blogs = () => {
 
                 <span className="sm:w-4/5">
                   <div>
-                    <NavLink to="/blogs">
-                      <h2 className="text-xl font-light"> {blog.title}</h2>
+                    <NavLink to={`/blogs/${blog._id}`}>
+                      <h2 className="text-xl font-normal"> {blog.title}</h2>
                       <p className="h-14 overflow-hidden overflow-ellipsis">{`${blog.body}`}</p>
                     </NavLink>
                   </div>
@@ -50,7 +48,7 @@ const Blogs = () => {
                   <div className="flex mt-3 text-base font-thin">
                     <span className="mr-8">{blog.createdAt}</span>
                     <span className="mr-8">3 min Read</span>
-                    <NavLink to="/blogs">
+                    <NavLink to={`/blogs/${blog._id}`}>
                       <button className="font-thin">Read more...</button>
                     </NavLink>
                   </div>

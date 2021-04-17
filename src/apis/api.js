@@ -9,5 +9,4 @@ if (NODE_ENV === 'development') {
 } else {
   backend_url = REACT_APP_BACKEND_URL_PROD;
 }
-
 export { backend_url };
