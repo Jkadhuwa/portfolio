@@ -7,7 +7,7 @@ import { ReactComponent as GithubIcon } from '../assets/images/github.svg';
 
 function Footer() {
   return (
-    <footer className="md:flex justify-center bg-gray-800 h-80 ">
+    <footer className="mt-36 md:flex justify-center bg-gray-800 h-80 ">
       <section className="mx-auto text-white mt-8 ">
         <article className="flex justify-center mt-8  text-2xl">
           <div className="space-x-8">{'<MK/>'} Musinda Kadhuwa.</div>

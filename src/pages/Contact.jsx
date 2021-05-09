@@ -14,7 +14,6 @@ const Contact = () => {
     setState({ ...state, [name]: value });
   };
   const handleSubmit = (e) => {
-    console.log(state);
     e.preventDefault();
     setState(initialstate);
   };
@@ -32,7 +31,7 @@ const Contact = () => {
 
           <form
             className="flex flex-col items-center justify-center space-y-4"
-            onSubmit={handleSubmit}
+            onSubmit={(e) => handleSubmit(e)}
           >
             <input
               className="w-80 focus:outline-none border focus:border-yellow-600 sm:w-96 h-8 rounded-md p-4"

@@ -11,11 +11,17 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "eslint-import-resolver-babel-module": "^5.3.1",
+    "eslint-plugin-import": "^2.22.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -46,13 +52,16 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.2.3",
+    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
+    "moxios": "^0.4.0",
     "postcss": "^8.2.4",
     "postcss-cli": "^8.3.1",
     "prettier": "^2.2.1",
+    "redux-mock-store": "^1.5.4",
     "tailwindcss": "^2.0.2"
   },
   "jest": {

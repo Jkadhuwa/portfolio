@@ -4,7 +4,7 @@ import Profile from '../assets/images/profile.jpg';
 import DevImg from '../assets/images/dev_img.jpeg';
 const Homepage = () => {
   return (
-    <section className="">
+    <section>
       <article
         className="grid h-screen"
         style={{ backgroundImage: `url(${HomepageBgImg})` }}

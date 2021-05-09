@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        ["babel-plugin-module-resolver", 
+            {
+            "alias":{
+                "#root": "./src",
+                "#pages": "./src/pages",
+                "#components": "./src/components"
+            }
+        }]
+    ]
+}

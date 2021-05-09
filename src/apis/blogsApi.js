@@ -9,4 +9,7 @@ export default {
   async getBlogById(id) {
     return await axios.get(`${backend_url}/blogs/${id}`);
   },
+  async createBlog(payload) {
+    return await axios.post(`${backend_url}/blogs/`, payload);
+  },
 };
