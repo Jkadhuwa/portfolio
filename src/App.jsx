@@ -8,6 +8,7 @@ import Resume from './pages/Resume';
 import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import Portfolio from './components/Portfolio';
 const App = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,6 +23,7 @@ const App = () => {
         <Route exact path="/blogs" component={Blogs} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/blogs/:id" component={Blog} />
+        <Route path="/portfolio" component={Portfolio} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
       <Footer />

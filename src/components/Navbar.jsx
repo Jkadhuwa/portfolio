@@ -15,9 +15,9 @@ const Navbar = () => {
     <nav
       className={`${
         isOpen ? 'h-52 ' : 'h-20'
-      } flex flex-wrap px-8 w-screen fixed  bg-gray-100  sm:h-20 z-10`}
+      } flex flex-wrap px-8 w-screen fixed bg-gray-100  sm:h-20 z-10`}
     >
-      <div className="flex-1 flex justify-between my-6">
+      <div className="flex-1 flex justify-between my-6 ">
         <div className="w-2 h-32 ">
           <p className="text-xl">{initial}</p>
         </div>

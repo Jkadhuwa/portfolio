@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import Contact from '../Contact';
@@ -28,10 +28,12 @@ describe('Test Contacts Component', () => {
     userEvent.type(email_input, 'JoeDoe@gmail.com');
     userEvent.type(name_input, 'Joe Doe');
     userEvent.type(message_input, 'Here we go again');
+
     const submit = jest.spyOn(console, 'log');
     submit.mockImplementation();
     const submitBtn = getByRole('button');
     userEvent.click(submitBtn);
+    screen.debug();
     expect(submit).toHaveBeenCalledTimes(1);
   });
 });

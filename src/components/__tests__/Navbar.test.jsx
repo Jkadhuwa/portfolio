@@ -1,20 +1,28 @@
 import React from 'react';
 import { render, waitFor, fireEvent } from '@testing-library/react';
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+import { StaticRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import Navbar from '../Navbar';
 
 describe('Test Navbar Component', () => {
-  const history = createMemoryHistory();
   it('Should render the NotFoundPage correctly', async () => {
     const setOpen = jest.fn();
     const { getByText } = render(
-      <Router history={history}>
+      <StaticRouter>
         <Navbar onClick={setOpen} />
-      </Router>
+      </StaticRouter>
     );
     await waitFor(() => fireEvent.click(getByText('About')));
     expect(setOpen).toBeCalledTimes(0);
+  });
+
+  it('Should render all Linkscorrectly', async () => {
+    const { getAllByRole } = render(
+      <StaticRouter>
+        <Navbar />
+      </StaticRouter>
+    );
+    const link = getAllByRole('link');
+    expect(link[0].textContent).toBe('About');
   });
 });
