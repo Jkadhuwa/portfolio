@@ -1,13 +1,15 @@
 import React from 'react';
-import HomepageBgImg from '../assets/images/intro-bg.jpg';
-import Profile from '../assets/images/profile.jpg';
-import DevImg from '../assets/images/dev_img.jpeg';
+
 const Homepage = () => {
   return (
     <section>
       <article
         className="grid h-screen"
-        style={{ backgroundImage: `url(${HomepageBgImg})` }}
+        style={{
+          backgroundImage: `url(
+            'https://res.cloudinary.com/uninet/image/upload/v1621089252/jpmzrbhpwfqpkrhgzr2d.jpg'
+          )`,
+        }}
       >
         <div className="flex flex-col items-center justify-center uppercase md:flex flex-wrap space-y-2">
           <p className="text-3xl md:text-3xl flex flex-wrap md:text-4x">
@@ -26,7 +28,7 @@ const Homepage = () => {
       <article className="grid grid-cols-1 h-screen justify-center  md:grid-cols-2 mt-24">
         <div className="flex w-60 h-60 ml-16 -mb- sm:w-screen md:ml-48 lg:ml-24">
           <img
-            src={Profile}
+            src="https://res.cloudinary.com/uninet/image/upload/v1621096473/liqp0x93wdb49qtc8lf7.jpg"
             alt="Profile_picture"
             className="object-fill rounded-full md:h-96 w-96"
           />
@@ -46,7 +48,11 @@ const Homepage = () => {
       </article>
       <article className="h-5/6 grid bg-white justify center md:grid-cols-2 -mt-24">
         <div>
-          <img src={DevImg} alt="" className="h-64 w-64 mt-32 ml-20 md:ml-24" />
+          <img
+            src="https://res.cloudinary.com/uninet/image/upload/v1621096340/uwi6smzbpxdxfpeflcnp.jpg"
+            alt="DevImage"
+            className="h-64 w-64 mt-32 ml-20 md:ml-24"
+          />
         </div>
         <div className="mt-20 mr-16  text-xl font-extralight mb-24">
           <h3 className="grid text-4xl  mb-12 justify-center ">What I do.</h3>

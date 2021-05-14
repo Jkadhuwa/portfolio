@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ContactImg from '../assets/images/contactImg.png';
 
 const Contact = () => {
   const initialstate = {
@@ -22,7 +21,10 @@ const Contact = () => {
     <section>
       <article className="min-h-screen grid sm:grid-cols-2 items-center justify-center px-48">
         <div className="invisible sm:visible flex flex-col items-center justify-center">
-          <img src={ContactImg} alt="" />
+          <img
+            src="https://res.cloudinary.com/uninet/image/upload/v1621096422/febrsuatts8f94vpijio.png"
+            alt="contact"
+          />
         </div>
         <div className="-mt-96 flex flex-col sm:mt-16 grid space-y-5 ">
           <h2 className="text-center font-light text-2xl sm:font-extralight">

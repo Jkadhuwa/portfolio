@@ -1,13 +1,15 @@
 import React from 'react';
-import WebImage from '../assets/images/webImg.jpg';
-import DownloadIcon from '../assets/images/downloadIcon.png';
 
 const Resume = () => {
   return (
     <section className="w-9/12 align-self-center min-h-screen mb-80 font-extralight">
       <article
         className="grid h-screen w-screen mb-24"
-        style={{ backgroundImage: `url(${WebImage})` }}
+        style={{
+          backgroundImage:
+            'url(https://res.cloudinary.com/uninet/image/upload/v1621090970/hvsu2wj6myasf5a5r7ih.jpg)',
+        }}
+        alt="background"
       >
         <div className="-ml-0 text-white font-extralight w-24  md: mt-24 ml-24 w-80  ">
           <p className="ml-24 text-2xl">
@@ -19,7 +21,10 @@ const Resume = () => {
             className="flex border border-gray-400 p-2 text-white text-xl font-extralight
            rounded shadow   hover:border-yellow-600 focus:outline-none"
           >
-            <img src={DownloadIcon} className="h-7 animate-bounce z-0 " />
+            <img
+              src="https://res.cloudinary.com/uninet/image/upload/v1621096978/inttxs84jwu8yszxrsxc.png"
+              className="h-7 animate-bounce z-0 "
+            />
             Download Resume
           </button>
         </div>

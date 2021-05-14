@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getAllBlogs } from '../redux/actions/blogActions';
-import DevImg from '../assets/images/dev_img.jpeg';
 import Spinner from '../components/Spinner';
 
 const Blogs = () => {
@@ -28,7 +27,7 @@ const Blogs = () => {
             key={i}
           >
             <span className="flex sm:w-1/5 mr-8 sm:visible">
-              <img src={DevImg} />
+              <img src="https://res.cloudinary.com/uninet/image/upload/v1621096340/uwi6smzbpxdxfpeflcnp.jpg" />
             </span>
 
             <span className="sm:w-4/5">
