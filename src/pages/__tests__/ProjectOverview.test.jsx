@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import ProjectsOverview from '../ProjectsOverview';
+import ProjectsOverview from '../ProjectsPage';
 import mockData from '../__mocks__/projectsMock';
 
 const middlewares = [thunk];
@@ -16,6 +16,7 @@ describe('Test ProjectOverview Component', () => {
   let store;
   const match = {
     path: '/portfolio',
+    params: { categoryId: 'webdev' },
   };
   it('Should display Spinner Image correctly', async () => {
     store = mockStore({
@@ -49,6 +50,10 @@ describe('Test ProjectOverview Component', () => {
   });
 
   it('Should Display all Projects Correctly', async () => {
+    const match = {
+      path: '/portfolio',
+      params: {},
+    };
     store = mockStore({
       Projects: {
         loading: false,
@@ -62,6 +67,23 @@ describe('Test ProjectOverview Component', () => {
         </Provider>
       </StaticRouter>
     );
-    expect(getAllByRole('article')).toHaveLength(3);
+    expect(getAllByRole('article')).toHaveLength(4);
+  });
+
+  it('Should Display all only Web Dev Projects Correctly', async () => {
+    store = mockStore({
+      Projects: {
+        loading: false,
+        projects: mockData,
+      },
+    });
+    const { getAllByRole } = render(
+      <StaticRouter>
+        <Provider store={store}>
+          <ProjectsOverview match={match} />
+        </Provider>
+      </StaticRouter>
+    );
+    expect(getAllByRole('article')).toHaveLength(4);
   });
 });
