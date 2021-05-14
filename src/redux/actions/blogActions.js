@@ -7,7 +7,6 @@ import {
   GET_SINGLE_BLOG_SUCCESS,
   GET_SINGLE_BLOG_ERROR,
 } from '../constants';
-// import store from '../store';
 
 export const createBlog = (title, body) => async (dispatch) => {
   const payload = {};
@@ -43,16 +42,7 @@ export const getAllBlogs = () => async (dispatch) => {
 
 export const getBlogByID = (id) => async (dispatch) => {
   try {
-    // const { blogs } = store.getState().Blogs;
-    // let response;
-    // console.log(blogs, 'response');
-    // if (!blogs.length) {
     const response = await blogsApi.getBlogById(id);
-    // } else {
-    //   const [blog] = blogs.filter((blog) => blog.blog_id == id);
-    //   console.log(blog, 'res1');
-    // }
-
     return dispatch({
       type: GET_SINGLE_BLOG_SUCCESS,
       payload: response.data,
