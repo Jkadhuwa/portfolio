@@ -2,7 +2,6 @@ import { GET_ALL_PROJECTS_SUCCESS, GET_ALL_PROJECTS_ERROR } from '../constants';
 
 const getProjects = {
   loading: true,
-  projects: [],
 };
 
 export const getAllProjects = (state = getProjects, action) => {
@@ -12,7 +11,7 @@ export const getAllProjects = (state = getProjects, action) => {
       return {
         ...state,
         loading: false,
-        projects: payload.projects,
+        ...payload,
       };
 
     case GET_ALL_PROJECTS_ERROR:

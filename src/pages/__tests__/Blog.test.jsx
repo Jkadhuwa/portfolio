@@ -21,12 +21,16 @@ describe('Test Blog Component', () => {
     expect(blog).toHaveBeenCalledTimes(1);
   });
 
-  it('Should Error Message', async () => {
+  it('Should return Error Message', async () => {
     const id = '6075e2d344cb5b06d1a521a56';
     store = mockStore({
+      Blog: {
+        loading: false,
+        status: 'error',
+        message: 'Sorry! The requested blog was not found',
+      },
       Blogs: {
         loading: false,
-        blogs: mockData.blogs,
       },
     });
 
@@ -39,40 +43,14 @@ describe('Test Blog Component', () => {
         </Route>
       </MemoryRouter>
     );
-
     expect(getAllByRole('heading')[0].textContent).toBe('404 | Not Found');
   });
 
   it('Should return the blog with the specific id', async () => {
     const id = '6075e2d344cb5b06d1a521a5';
     store = mockStore({
-      Blogs: {
-        loading: true,
-        blogs: mockData.blogs,
-      },
-    });
-    const { getAllByRole } = render(
-      <MemoryRouter initialEntries={[`/blogs/${id}`]}>
-        <Route path="/blogs/:id">
-          <Provider store={store}>
-            <Blog />
-          </Provider>
-        </Route>
-      </MemoryRouter>
-    );
-    expect(getAllByRole('heading')[0].textContent).toBe('What is Lorem Ipsum?');
-  });
-
-  it('Should return the blog with the specific id', async () => {
-    const id = '6075e2d344cb5b06d1a521a5';
-    store = mockStore({
-      Blogs: {
-        loading: true,
-        blogs: [],
-      },
-
       Blog: {
-        loading: true,
+        loading: false,
         blog: mockData.blog,
       },
     });
@@ -86,5 +64,24 @@ describe('Test Blog Component', () => {
       </MemoryRouter>
     );
     expect(getAllByRole('heading')[0].textContent).toBe('What is Lorem Ipsum?');
+  });
+
+  it('Should return Spinner', async () => {
+    const id = '6075e2d344cb5b06d1a521a5';
+    store = mockStore({
+      Blog: {
+        loading: true,
+      },
+    });
+    const { getByRole } = render(
+      <MemoryRouter initialEntries={[`/blogs/${id}`]}>
+        <Route path="/blogs/:id">
+          <Provider store={store}>
+            <Blog />
+          </Provider>
+        </Route>
+      </MemoryRouter>
+    );
+    expect(getByRole('img')).toHaveAttribute('src', 'spinner.gif');
   });
 });

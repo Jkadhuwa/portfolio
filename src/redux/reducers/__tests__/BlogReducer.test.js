@@ -8,7 +8,7 @@ describe('Test Blog Reducer', () => {
   };
   const error = data.error.message;
   it('Should return default state', () => {
-    expect(getAllBlogs(undefined, {})).toEqual({ loading: true, blogs: [] });
+    expect(getAllBlogs(undefined, {})).toEqual({ loading: true });
   });
 
   it('Should return new all blogs in state', () => {

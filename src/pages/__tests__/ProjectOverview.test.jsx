@@ -38,7 +38,6 @@ describe('Test ProjectOverview Component', () => {
     store = mockStore({
       Projects: {
         loading: false,
-        projects: [],
       },
     });
     const { getAllByRole } = render(
