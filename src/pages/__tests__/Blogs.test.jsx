@@ -41,7 +41,8 @@ describe('Test Blogs Component', () => {
     store = mockStore({
       Blogs: {
         loading: false,
-        blogs: [],
+        status: 'error',
+        message: 'No Blogs found at the moment.',
       },
     });
     const { getByText } = render(
@@ -52,9 +53,7 @@ describe('Test Blogs Component', () => {
       </BrowserRouter>
     );
     await waitFor(() =>
-      expect(
-        getByText(/No Blogs found at the moment. Please come back later!!!/i)
-      ).toBeInTheDocument()
+      expect(getByText(/No Blogs found at the moment./i)).toBeInTheDocument()
     );
   });
 

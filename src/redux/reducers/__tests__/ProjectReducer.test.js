@@ -7,7 +7,7 @@ describe('Test Project Reducer', () => {
     projects,
   };
   it('Should return default state', () => {
-    expect(getAllProjects(undefined, {})).toEqual({ loading: true, projects: [] });
+    expect(getAllProjects(undefined, {})).toEqual({ loading: true });
   });
 
   it('Should update the state with new Projects', () => {

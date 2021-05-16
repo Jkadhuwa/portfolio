@@ -3,21 +3,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getAllBlogs } from '../redux/actions/blogActions';
 import Spinner from '../components/Spinner';
+import NotFound from './404';
 
 const Blogs = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllBlogs());
   }, []);
-  const { loading, blogs } = useSelector((state) => state.Blogs);
+  const { loading, blogs, message } = useSelector((state) => state.Blogs);
 
   if (loading) return <Spinner />;
-  if (!blogs.length)
-    return (
-      <div className="-mt-36 flex flex-wrap items-center justify-center text-2xl h-screen text-center mx-4 ">
-        No Blogs found at the moment. Please come back later!!!
-      </div>
-    );
+  if (!blogs) return <NotFound message={message} />;
   return (
     <section className="mt-36 min-h-screen text-xl font-extralight ">
       <article className="flex flex-col items-center mb-20">

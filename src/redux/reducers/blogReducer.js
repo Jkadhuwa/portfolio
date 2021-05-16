@@ -10,12 +10,10 @@ import {
 const createBlogState = {};
 export const getBlogs = {
   loading: true,
-  blogs: [],
 };
 
 export const singleBlog = {
   loading: true,
-  blog: {},
 };
 
 export const createBlog = (state = createBlogState, action) => {
@@ -46,7 +44,7 @@ export const getAllBlogs = (state = getBlogs, action) => {
       return {
         ...state,
         loading: false,
-        blogs: payload.blogs,
+        ...payload,
       };
 
     case GET_ALL_BLOGS_ERROR:

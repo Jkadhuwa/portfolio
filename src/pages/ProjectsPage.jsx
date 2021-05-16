@@ -15,10 +15,10 @@ function ProjectOverview({ match }) {
     dispatch(getProjects());
   }, []);
 
-  const { loading, projects } = useSelector((state) => state.Projects);
+  const { loading, projects, message } = useSelector((state) => state.Projects);
 
   if (loading) return <Spinner />;
-  if (!projects.length) return <NotFound />;
+  if (!projects) return <NotFound message={message} />;
 
   return (
     <section className="mt-36 p-2 min-h-screen text-xl font-extralight sm:p-8 z-20 sm:mt-28 ">
