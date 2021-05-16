@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test PortfolioButton Component Should Display Buttons Correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="grid gap-y-7 sm:flex justify-center justify-evenly text-base"
+  >
+    <div>
+      <a
+        class="shadow-inner text-center border bg-gray-100 rounded py-2 px-4 hover:text-yellow-600 text-gray-500 mr-2 "
+        href="/portfolio"
+      >
+        SHOW ALL
+      </a>
+    </div>
+    <div
+      class=""
+    >
+      <a
+        class="shadow-inner text-center border bg-gray-100 rounded py-2 px-2 hover:text-yellow-600 text-gray-500 mr-2"
+        href="/portfolio/webdev"
+      >
+        WEB DEVELOPMENT
+      </a>
+    </div>
+    <div
+      class=""
+    >
+      <a
+        class="shadow-inner text-center border bg-gray-100 rounded py-2 px-2 hover:text-yellow-600 text-gray-500 "
+        href="/portfolio/devops"
+      >
+        DEVOPS
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
